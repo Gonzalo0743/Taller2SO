@@ -24,5 +24,8 @@ int main() {
         printf("El factorial de %d es %llu\n", num, resultado);
     }
 
+    //Se introduce una pausa de 5 segundos para ver el rendimiento
+    sleep(5);
+
     return 0;
 }

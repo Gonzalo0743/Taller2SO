@@ -17,3 +17,6 @@ if num < 0:
 else:
     resultado = factorial(num)
     print(f"El factorial de {num} es {resultado}")
+
+# Se introduce una pausa de 5 segundos para lograr ver el rendimiento
+time.sleep(5)

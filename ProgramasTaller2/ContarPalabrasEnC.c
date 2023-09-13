@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-#include <time.h>
 #include <ctype.h>
 
 #define MAX_LINE_LEN 1000
@@ -12,11 +11,9 @@ struct ThreadArgs {
     char *filename;
     char *target_word;
     int *count;
-    int start_index;
-    int end_index;
 };
 
-// Función que realiza la búsqueda de la palabra en el rango de líneas especificado
+// Función que realiza la búsqueda de la palabra en el archivo
 void *searchWord(void *args) {
     struct ThreadArgs *threadArgs = (struct ThreadArgs *)args;
     FILE *file = fopen(threadArgs->filename, "r");
@@ -32,7 +29,7 @@ void *searchWord(void *args) {
     }
 
     int count = 0;
-    
+
     while (fgets(line, sizeof(line), file) != NULL) {
         // Buscar la palabra en esta línea
         char *word = strtok(line, " \t\n");
